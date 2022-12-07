@@ -16,4 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/mahasiswas", [MahasiswaController::class, "index"]);
 
-Route::get("/mahasiswas/create", [MahasiswaController::class], "create");
+Route::get("/mahasiswas/{mahasiswaId}", [MahasiswaController::class, "detailMahasiswa"]);
+
+Route::get("/mahasiswas/insertMahasiswa", [MahasiswaController::class, "insertMahasiswa"]);
+
+Route::post("/mahasiswas/insertData", [MahasiswaController::class, "insertData"]);
+
+Route::get("/mahasiswas/updateMahasiswa/{mahasiswaId}", [MahasiswaController::class, "updateMahasiswa"]);
+
+Route::patch("/mahasiswas/updateData/{mahasiswaId}", [MahasiswaController::class, "updateData"]);
+
+Route::delete("/mahasiswas/deleteData/{mahasiswaId}", [MahasiswaController::class, "deleteData"]);
