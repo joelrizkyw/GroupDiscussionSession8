@@ -21,7 +21,10 @@ class MahasiswaController extends Controller
     public function detailMahasiswa($mahasiswaId)
     {
 
-        return view("detail_mahasiswa");
+        $dataDetail = Mahasiswa::find($mahasiswaId);
+
+        return view("detail_mahasiswa")
+            ->with("dataDetail", $dataDetail);
     }
 
     // Function untuk buka halaman insert mahasiswa (tambah_mahasiswa.blade.php)
@@ -57,6 +60,10 @@ class MahasiswaController extends Controller
     // Function untuk hapus data mahasiswa dari database
     public function deleteData($mahasiswaId)
     {
+
+        $dataDelete = Mahasiswa::find($mahasiswaId);
+
+        $dataDelete->delete();
 
         // Redirect ke route halaman utama
         return redirect("/mahasiswas");

@@ -6,11 +6,17 @@
 
 @section('header-content')
 
-    <div class="container mt-4">
+    <div class="container justify-content-between d-flex mt-4">
 
         <h1 class="m-0">Tabel Mahasiswa</h1>
 
-        <br>
+        <a class="btn btn-success mt-2" href="">Tambah Mahasiswa</a>
+
+
+    </div>
+
+    <div class="container">
+
         <hr>
     </div>
 
@@ -24,7 +30,6 @@
 
             <thead>
 
-                @forelse
                 <tr>
 
                     <th scope="col">#</th>
@@ -35,23 +40,34 @@
                     <th scope="col">Alamat</th>
                     <th scope="col">Action</th>
                 </tr>
+
+
             </thead>
 
             <tbody>
 
-                <tr class="vertical-align-content">
+                <?php
 
-                    <td scope="row">1</td>
-                    <td>2440050981</td>
-                    <td>Joel Rizky Wahidiyat</td>
-                    <td>Laki-laki</td>
-                    <td>Teknik Informatika</td>
-                    <td>Depok</td>
-                    <td>
+                $number = 0;
+                ?>
 
-                        <a class="btn btn-warning" href=" {{ url('/mahasiswas/1') }} ">Detail</a>
-                    </td>
-                </tr>
+                @foreach ($dataMahasiswa as $data)
+                    <tr class="vertical-align-content">
+
+                        <td scope="row">{{ $number += 1 }}</td>
+                        <td>{{ $data->nim }}</td>
+                        <td>{{ $data->nama }}</td>
+                        <td>{{ $data->jenis_kelamin }}</td>
+                        <td>{{ $data->jurusan }}</td>
+                        <td>{{ $data->alamat }}</td>
+                        <td>
+
+                            <a class="btn btn-warning" href=" {{ url('/mahasiswas/' . $data->id) }} ">Detail</a>
+                        </td>
+                    </tr>
+                @endforeach
+
+
             </tbody>
         </table>
     </div>
