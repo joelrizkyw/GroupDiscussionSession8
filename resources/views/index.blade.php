@@ -10,7 +10,7 @@
 
         <h1 class="m-0">Tabel Mahasiswa</h1>
 
-        <a class="btn btn-success mt-2" href="">Tambah Mahasiswa</a>
+        <a class="btn btn-success mt-2" href="{{ url('/mahasiswas/insertMahasiswa') }}">Tambah Mahasiswa</a>
 
 
     </div>

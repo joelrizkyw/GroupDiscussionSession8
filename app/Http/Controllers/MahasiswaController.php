@@ -31,12 +31,21 @@ class MahasiswaController extends Controller
     public function insertMahasiswa()
     {
 
-        return view("tambah_mahasiswa");
+        return view("index");
     }
 
     // Function untuk insert data mahasiswa ke database
-    public function insertData()
+    public function insertData(Request $request)
     {
+
+        Mahasiswa::create([
+
+            "nim" => $request->nim,
+            "nama" => $request->nama,
+            "jenis_kelamin" => $request->jenis_kelamin,
+            "jurusan" => $request->jurusan,
+            "alamat" => $request->alamat
+        ]);
 
         // Redirect ke route halaman utama
         return redirect("/mahasiswas");
@@ -46,12 +55,25 @@ class MahasiswaController extends Controller
     public function updateMahasiswa($mahasiswaId)
     {
 
-        return view("edit_mahasiswa");
+        $dataMahasiswa = Mahasiswa::find($mahasiswaId);
+
+        return view("edit_mahasiswa")
+            ->with("dataMahasiswa", $dataMahasiswa);
     }
 
     // Function untuk update data mahasiswa ke database
-    public function updateData($mahasiswaId)
+    public function updateData(Request $request, $mahasiswaId)
     {
+
+        $dataUpdate = Mahasiswa::find($mahasiswaId);
+
+        $dataUpdate->nim = $request->nim;
+        $dataUpdate->nama = $request->nama;
+        $dataUpdate->jenis_kelamin = $request->jenis_kelamin;
+        $dataUpdate->jurusan = $request->jurusan;
+        $dataUpdate->alamat = $request->alamat;
+
+        $dataUpdate->save();
 
         // Redirect ke route halaman utama
         return redirect("/mahasiswas");
