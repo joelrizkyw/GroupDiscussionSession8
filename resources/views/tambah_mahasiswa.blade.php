@@ -12,10 +12,10 @@
 <body>
 
 <!-- NIM, Nama, Jenis kelamin, jurusan, alamat -->
-  <div class="container">
+  <div class="container pt-5">
+    <button type="button" class="btn btn-secondary">Back</button>
     <h1 class="pt-5">Tambah Mahasiswa</h1>
     <form>
-      
       <div class="form-group pt-2">
         <label for="nim">NIM</label>
         <input type="text" class="form-control" id="nim" placeholder="Masukan NIM">
