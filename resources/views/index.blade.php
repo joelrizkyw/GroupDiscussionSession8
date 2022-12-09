@@ -62,7 +62,8 @@
                         <td>{{ $data->alamat }}</td>
                         <td>
 
-                            <a class="btn btn-warning" href=" {{ url('/mahasiswas/' . $data->id) }} ">Detail</a>
+                            <a class="btn btn-warning"
+                                href=" {{ url('/mahasiswas/detailMahasiswa/' . $data->id) }} ">Detail</a>
                         </td>
                     </tr>
                 @endforeach
