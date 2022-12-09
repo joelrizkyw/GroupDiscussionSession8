@@ -31,7 +31,7 @@ class MahasiswaController extends Controller
     public function insertMahasiswa()
     {
 
-        return view("index");
+        return view("tambah_mahasiswa");
     }
 
     // Function untuk insert data mahasiswa ke database

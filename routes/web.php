@@ -19,6 +19,7 @@ Route::get("/mahasiswas", [MahasiswaController::class, "index"])
 
 Route::get("/mahasiswas/{mahasiswaId}", [MahasiswaController::class, "detailMahasiswa"]);
 
+Route::get("/mahasiswas/insertMahasiswa", [MahasiswaController::class, "insertMahasiswa"]);
 
 Route::post("/mahasiswas/insertData", [MahasiswaController::class, "insertData"])
     ->name("insert-data");
