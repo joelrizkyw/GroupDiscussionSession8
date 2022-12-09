@@ -24,6 +24,7 @@
 
             <thead>
 
+                @forelse
                 <tr>
 
                     <th scope="col">#</th>

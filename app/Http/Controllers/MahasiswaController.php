@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Mahasiswa;
 
 class MahasiswaController extends Controller
 {
@@ -10,7 +11,10 @@ class MahasiswaController extends Controller
     public function index()
     {
 
-        return view("index");
+        $dataMahasiswa = Mahasiswa::all();
+
+        return view("index")
+            ->with("dataMahasiswa", $dataMahasiswa);
     }
 
     // Function untuk buka halaman detail mahasiswa (detail_mahasiswa.blade.php)
